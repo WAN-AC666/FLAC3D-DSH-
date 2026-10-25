@@ -18,17 +18,24 @@ console log and collect the output files — without leaving the chat.
 
 ## Requirements
 
-- Windows with FLAC3D 7.0 installed (detected through the registry, or set `FLAC3D_HOME`)
+- Windows with FLAC3D 7.0 installed and licensed (auto-detected through the registry,
+  or set `FLAC3D_HOME`)
 - DeepSeek Harness with a profile at `%USERPROFILE%\.dsh\profiles\<name>`
-- Python 3 for the MCP process
+- Python 3. The interpreter bundled with FLAC3D
+  (`<FLAC3D_HOME>\exe64\python36\python.exe`) is enough; no extra packages are needed.
 
-## Install
+## Quick start
 
 ```powershell
-git clone https://github.com/<you>/flac3d-dsh-plugin.git
-cd flac3d-dsh-plugin
-.\install.ps1                      # add -DryRun to preview, -ProfileDir to target another profile
+git clone https://github.com/WAN-AC666/FLAC3D-DSH-.git
+cd FLAC3D-DSH-
+.\install.ps1 -DryRun     # preview
+.\install.ps1             # copy, render patch, link, register bundle
+.\verify.ps1              # solves the example model end to end
 ```
+
+Then restart the harness if `mcp__flac3d__*` tools are not there yet. Other machines,
+other profiles and manual installs: [docs/INSTALL.md](docs/INSTALL.md).
 
 `install.ps1` copies the package to `%LOCALAPPDATA%\dsh-flac3d`, renders
 `cordis.patch.yml` with absolute paths, links it into the profile's `node_modules`

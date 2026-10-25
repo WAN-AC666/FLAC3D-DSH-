@@ -25,9 +25,28 @@ import sys
 
 VERSION = "1.0.0"
 HERE = os.path.dirname(os.path.abspath(__file__))
-RUNNER = os.environ.get("FLAC3D_RUNNER") or os.path.abspath(
-    os.path.join(HERE, os.pardir, "flac3d", "runner.py")
-)
+
+
+def _find_runner():
+    """Locate flac3d/runner.py in both supported layouts.
+
+    installed: <pkg>/mcp_flac3d.py + <pkg>/flac3d/runner.py
+    repo:      plugin/mcp_flac3d.py + ../flac3d/runner.py
+    """
+    override = os.environ.get("FLAC3D_RUNNER")
+    if override:
+        return os.path.abspath(override)
+    candidates = [
+        os.path.join(HERE, "flac3d", "runner.py"),
+        os.path.abspath(os.path.join(HERE, os.pardir, "flac3d", "runner.py")),
+    ]
+    for candidate in candidates:
+        if os.path.isfile(candidate):
+            return candidate
+    return candidates[0]
+
+
+RUNNER = _find_runner()
 
 TOOLS = [
     {
