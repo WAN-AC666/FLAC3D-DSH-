@@ -1,0 +1,22 @@
+{
+  "name": "@local/flac3d",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Itasca FLAC3D 7.0 tools for DeepSeek Harness (run scripts, list outputs).",
+  "exports": {
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "mcp_flac3d.py"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

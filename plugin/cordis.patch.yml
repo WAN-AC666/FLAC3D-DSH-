@@ -1,0 +1,18 @@
+# FLAC3D 7.0 tools for DeepSeek Harness.
+#
+# The MCP client spawns mcp_flac3d.py over stdio; the tools appear to the
+# agent as mcp__flac3d__flac3d_run / flac3d_info / flac3d_outputs.
+#
+# __PYTHON__ and __MCP_SERVER__ are replaced by install.ps1 with the absolute
+# paths of a Python 3 interpreter and this server on the target machine.
+- insert:
+    - id: flac3d-mcp
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: flac3d
+        transport: stdio
+        command: '__PYTHON__'
+        args:
+          - '__MCP_SERVER__'
+        toolCallTimeoutMs: 900000
+        failOnStartupError: false

@@ -1,0 +1,21 @@
+# FLAC3D run artefacts
+out/
+_flac_run.f3sd
+_flac_run.f3dat
+_flac_run.log
+*.sav
+*.f3grid
+*.f3sav
+*.csv
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
