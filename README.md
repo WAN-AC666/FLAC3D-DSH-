@@ -29,9 +29,9 @@ console log and collect the output files — without leaving the chat.
 ```powershell
 git clone https://github.com/WAN-AC666/FLAC3D-DSH-.git
 cd FLAC3D-DSH-
-.\install.ps1 -DryRun     # preview
-.\install.ps1             # copy, render patch, link, register bundle
-.\verify.ps1              # solves the example model end to end
+powershell -ExecutionPolicy Bypass -File .\install.ps1 -DryRun   # preview
+powershell -ExecutionPolicy Bypass -File .\install.ps1           # copy, render patch, link, register
+powershell -ExecutionPolicy Bypass -File .\verify.ps1            # solves the example model
 ```
 
 Then restart the harness if `mcp__flac3d__*` tools are not there yet. Other machines,

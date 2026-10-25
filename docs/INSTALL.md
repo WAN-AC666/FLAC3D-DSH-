@@ -34,9 +34,13 @@ Because of those paths, Route B is usually less error-prone on Windows.
 ```powershell
 git clone https://github.com/WAN-AC666/FLAC3D-DSH-.git
 cd FLAC3D-DSH-
-.\install.ps1 -DryRun     # show what will happen
-.\install.ps1             # copy to %LOCALAPPDATA%\dsh-flac3d, render patch, link, register
+powershell -ExecutionPolicy Bypass -File .\install.ps1 -DryRun   # show what will happen
+powershell -ExecutionPolicy Bypass -File .\install.ps1           # copy, render patch, link, register
 ```
+
+If you prefer the current session only: `Set-ExecutionPolicy -Scope Process Bypass`.
+Running the files with `-File` avoids the "running scripts is disabled on this system"
+error on default Windows installations.
 
 What it does:
 
